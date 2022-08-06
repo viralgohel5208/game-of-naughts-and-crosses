@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+	/* CSS Code */
+    #container 
+	{
+        text-align: center;
+    }
+	#grid_boxes_1, #grid_boxes_2, #grid_boxes_3, #grid_boxes_4, #grid_boxes_5,
+    #grid_boxes_6, #grid_boxes_7, #grid_boxes_8, #grid_boxes_9 
+	{
+        width: 100px;
+        height: 62px;
+        margin: auto;
+        border: 2px solid #7e6e52;
+        border-radius: 5px;
+        font-size: 25px;
+        text-align: center;
+    }
+	h2 
+	{
+        font-size: 30px;
+    }
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<br><br>
+		<h2>Game of Naughts and Crosses</h2>
+		<br><br>	
+		<!-- Here is grid of Boxes -->
+		<input type="text" id="grid_boxes_1" onclick="function_grid_boxes_1(); my_Naughts_and_Crosses_function();" readonly>
+		<input type="text" id="grid_boxes_2" onclick="function_grid_boxes_2(); my_Naughts_and_Crosses_function();" readonly>
+		<input type="text" id="grid_boxes_3" onclick="function_grid_boxes_3(); my_Naughts_and_Crosses_function();" readonly>
+		<br><br>
+
+		<input type="text" id="grid_boxes_4" onclick="function_grid_boxes_4(); my_Naughts_and_Crosses_function();" readonly>
+		<input type="text" id="grid_boxes_5" onclick="function_grid_boxes_5(); my_Naughts_and_Crosses_function();" readonly>
+		<input type="text" id="grid_boxes_6" onclick="function_grid_boxes_6(); my_Naughts_and_Crosses_function();" readonly>
+		<br><br>
+
+		<input type="text" id="grid_boxes_7" onclick="function_grid_boxes_7(); my_Naughts_and_Crosses_function();" readonly>
+		<input type="text" id="grid_boxes_8" onclick="function_grid_boxes_8(); my_Naughts_and_Crosses_function();" readonly>
+		<input type="text" id="grid_boxes_9" onclick="function_grid_boxes_9(); my_Naughts_and_Crosses_function();" readonly>
+
+	    <br><br><br>
+        <!-- Showing player turn or result -->
+        <p id="showing_message"></p>
+	</div>
+
+
+<script>
+	function my_Naughts_and_Crosses_function() {
+	
+		var grid_boxes_1, grid_boxes_2, grid_boxes_3, grid_boxes_4, grid_boxes_5, grid_boxes_6, grid_boxes_7, grid_boxes_8, grid_boxes_9;
+		grid_boxes_1 = document.getElementById("grid_boxes_1").value;
+		grid_boxes_2 = document.getElementById("grid_boxes_2").value;
+		grid_boxes_3 = document.getElementById("grid_boxes_3").value;
+		grid_boxes_4 = document.getElementById("grid_boxes_4").value;
+		grid_boxes_5 = document.getElementById("grid_boxes_5").value;
+		grid_boxes_6 = document.getElementById("grid_boxes_6").value;
+		grid_boxes_7 = document.getElementById("grid_boxes_7").value;
+		grid_boxes_8 = document.getElementById("grid_boxes_8").value;
+		grid_boxes_9 = document.getElementById("grid_boxes_9").value;
+	
+		
+		// Checking if Player Crosses won or not start
+		if ((grid_boxes_1 == 'x' || grid_boxes_1 == 'X') && (grid_boxes_2 == 'x' || grid_boxes_2 == 'X') && (grid_boxes_3 == 'x' || grid_boxes_3 == 'X')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Crosses won";
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_5").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			document.getElementById("grid_boxes_9").disabled = true;
+			window.alert('Player Crosses won');
+		}
+		else if ((grid_boxes_1 == 'x' || grid_boxes_1 == 'X') && (grid_boxes_4 == 'x' || grid_boxes_4 == 'X') && (grid_boxes_7 == 'x' || grid_boxes_7 == 'X')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Crosses won";
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_5").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			document.getElementById("grid_boxes_9").disabled = true;
+			window.alert('Player Crosses won');
+		}
+		else if ((grid_boxes_7 == 'x' || grid_boxes_7 == 'X') && (grid_boxes_8 == 'x' || grid_boxes_8 == 'X') && (grid_boxes_9 == 'x' || grid_boxes_9 == 'X')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Crosses won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_5").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			window.alert('Player Crosses won');
+		}
+		else if ((grid_boxes_3 == 'x' || grid_boxes_3 == 'X') && (grid_boxes_6 == 'x' || grid_boxes_6 == 'X') && (grid_boxes_9 == 'x' || grid_boxes_9 == 'X')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Crosses won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_5").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			window.alert('Player Crosses won');
+		}
+		else if ((grid_boxes_1 == 'x' || grid_boxes_1 == 'X') && (grid_boxes_5 == 'x' || grid_boxes_5 == 'X') && (grid_boxes_9 == 'x' || grid_boxes_9 == 'X')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Crosses won";
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			window.alert('Player Crosses won');
+		}
+		else if ((grid_boxes_3 == 'x' || grid_boxes_3 == 'X') && (grid_boxes_5 == 'x' || grid_boxes_5 == 'X') && (grid_boxes_7 == 'x' || grid_boxes_7 == 'X')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Crosses won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			document.getElementById("grid_boxes_9").disabled = true;
+			window.alert('Player Crosses won');
+		}
+		else if ((grid_boxes_2 == 'x' || grid_boxes_2 == 'X') && (grid_boxes_5 == 'x' || grid_boxes_5 == 'X') && (grid_boxes_8 == 'x' || grid_boxes_8 == 'X')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Crosses won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			window.alert('Player Crosses won');
+		}
+		else if ((grid_boxes_4 == 'x' || grid_boxes_4 == 'X') && (grid_boxes_5 == 'x' || grid_boxes_5 == 'X') && (grid_boxes_6 == 'x' || grid_boxes_6 == 'X')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Crosses won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			document.getElementById("grid_boxes_9").disabled = true;
+			window.alert('Player Crosses won');
+		}
+		// Checking of Player Crosses finish
+		
+		// Checking if Player Naughts won or not start
+		else if ((grid_boxes_1 == '0' || grid_boxes_1 == '0') && (grid_boxes_2 == '0' || grid_boxes_2 == '0') && (grid_boxes_3 == '0' || grid_boxes_3 == '0')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Naughts won";
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_5").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			document.getElementById("grid_boxes_9").disabled = true;
+			window.alert('Player Naughts won');
+		}
+		else if ((grid_boxes_1 == '0' || grid_boxes_1 == '0') && (grid_boxes_4 == '0' || grid_boxes_4 == '0') && (grid_boxes_7 == '0' || grid_boxes_7 == '0')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Naughts won";
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_5").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			document.getElementById("grid_boxes_9").disabled = true;
+			window.alert('Player Naughts won');
+		}
+		else if ((grid_boxes_7 == '0' || grid_boxes_7 == '0') && (grid_boxes_8 == '0' || grid_boxes_8 == '0') && (grid_boxes_9 == '0' || grid_boxes_9 == '0')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Naughts won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_5").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			window.alert('Player Naughts won');
+		}
+		else if ((grid_boxes_3 == '0' || grid_boxes_3 == '0') && (grid_boxes_6 == '0' || grid_boxes_6 == '0') && (grid_boxes_9 == '0' || grid_boxes_9 == '0')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Naughts won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_5").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			window.alert('Player Naughts won');
+		}
+		else if ((grid_boxes_1 == '0' || grid_boxes_1 == '0') && (grid_boxes_5 == '0' || grid_boxes_5 == '0') && (grid_boxes_9 == '0' || grid_boxes_9 == '0')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Naughts won";
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			window.alert('Player Naughts won');
+		}
+		else if ((grid_boxes_3 == '0' || grid_boxes_3 == '0') && (grid_boxes_5 == '0' || grid_boxes_5 == '0') && (grid_boxes_7 == '0' || grid_boxes_7 == '0')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Naughts won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			document.getElementById("grid_boxes_9").disabled = true;
+			window.alert('Player Naughts won');
+		}
+		else if ((grid_boxes_2 == '0' || grid_boxes_2 == '0') && (grid_boxes_5 == '0' || grid_boxes_5 == '0') && (grid_boxes_8 == '0' || grid_boxes_8 == '0')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Naughts won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_4").disabled = true;
+			document.getElementById("grid_boxes_6").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_9").disabled = true;
+			window.alert('Player Naughts won');
+		}
+		else if ((grid_boxes_4 == '0' || grid_boxes_4 == '0') && (grid_boxes_5 == '0' || grid_boxes_5 == '0') && (grid_boxes_6 == '0' || grid_boxes_6 == '0')) 
+		{
+			document.getElementById('showing_message').innerHTML = "Player Naughts won";
+			document.getElementById("grid_boxes_1").disabled = true;
+			document.getElementById("grid_boxes_2").disabled = true;
+			document.getElementById("grid_boxes_3").disabled = true;
+			document.getElementById("grid_boxes_7").disabled = true;
+			document.getElementById("grid_boxes_8").disabled = true;
+			document.getElementById("grid_boxes_9").disabled = true;
+			window.alert('Player Naughts won');
+		}
+		// Checking of Player Naughts finish
+		
+		// Here, Checking about Game Tie
+		else if ((grid_boxes_1 == 'X' || grid_boxes_1 == '0') && (grid_boxes_2 == 'X' || grid_boxes_2 == '0') && (grid_boxes_3 == 'X' || grid_boxes_3 == '0') && (grid_boxes_4 == 'X' || grid_boxes_4 == '0') && (grid_boxes_5 == 'X' ||
+			grid_boxes_5 == '0') && (grid_boxes_6 == 'X' || grid_boxes_6 == '0') && (grid_boxes_7 == 'X' || grid_boxes_7 == '0') && (grid_boxes_8 == 'X' || grid_boxes_8 == '0') && (grid_boxes_9 == 'X' || grid_boxes_9 == '0')) 
+		{
+				document.getElementById('showing_message').innerHTML = "Game Tie";
+				window.alert('Game Tie');
+		}
+		else 
+		{
+			// Here, showing messageing Result
+			if (type == 1) 
+			{
+				document.getElementById('showing_message').innerHTML = "Player Crosses Turn";
+			}
+			else 
+			{
+				document.getElementById('showing_message').innerHTML = "Player Naughts Turn";
+			}
+		}
+	}
+	
+	//functions check turn of the player and put accordingly value X or 0
+	type = 1;
+	function function_grid_boxes_1() 
+	{
+		if (type == 1) 
+		{
+			document.getElementById("grid_boxes_1").value = "X";
+			document.getElementById("grid_boxes_1").disabled = true;
+			type = 0;
+		}
+		else 
+		{
+			document.getElementById("grid_boxes_1").value = "0";
+			document.getElementById("grid_boxes_1").disabled = true;
+			type = 1;
+		}
+	}
+	
+	function function_grid_boxes_2() 
+	{
+		if (type == 1) 
+		{
+			document.getElementById("grid_boxes_2").value = "X";
+			document.getElementById("grid_boxes_2").disabled = true;
+			type = 0;
+		}
+		else 
+		{
+			document.getElementById("grid_boxes_2").value = "0";
+			document.getElementById("grid_boxes_2").disabled = true;
+			type = 1;
+		}
+	}
+	
+	function function_grid_boxes_3() 
+	{
+		if (type == 1) 
+		{
+			document.getElementById("grid_boxes_3").value = "X";
+			document.getElementById("grid_boxes_3").disabled = true;
+			type = 0;
+		}
+		else 
+		{
+			document.getElementById("grid_boxes_3").value = "0";
+			document.getElementById("grid_boxes_3").disabled = true;
+			type = 1;
+		}
+	}
+	
+	function function_grid_boxes_4() 
+	{
+		if (type == 1) 
+		{
+			document.getElementById("grid_boxes_4").value = "X";
+			document.getElementById("grid_boxes_4").disabled = true;
+			type = 0;
+		}
+		else 
+		{
+			document.getElementById("grid_boxes_4").value = "0";
+			document.getElementById("grid_boxes_4").disabled = true;
+			type = 1;
+		}
+	}
+	
+	function function_grid_boxes_5() 
+	{
+		if (type == 1) 
+		{
+			document.getElementById("grid_boxes_5").value = "X";
+			document.getElementById("grid_boxes_5").disabled = true;
+			type = 0;
+		}
+		else 
+		{
+			document.getElementById("grid_boxes_5").value = "0";
+			document.getElementById("grid_boxes_5").disabled = true;
+			type = 1;
+		}
+	}
+	
+	function function_grid_boxes_6() 
+	{
+		if (type == 1) 
+		{
+			document.getElementById("grid_boxes_6").value = "X";
+			document.getElementById("grid_boxes_6").disabled = true;
+			type = 0;
+		}
+		else 
+		{
+			document.getElementById("grid_boxes_6").value = "0";
+			document.getElementById("grid_boxes_6").disabled = true;
+			type = 1;
+		}
+	}
+	
+	function function_grid_boxes_7() 
+	{
+		if (type == 1) 
+		{
+			document.getElementById("grid_boxes_7").value = "X";
+			document.getElementById("grid_boxes_7").disabled = true;
+			type = 0;
+		}
+		else 
+		{
+			document.getElementById("grid_boxes_7").value = "0";
+			document.getElementById("grid_boxes_7").disabled = true;
+			type = 1;
+		}
+	}
+	
+	function function_grid_boxes_8() 
+	{
+		if (type == 1) 
+		{
+			document.getElementById("grid_boxes_8").value = "X";
+			document.getElementById("grid_boxes_8").disabled = true;
+			type = 0;
+		}
+		else 
+		{
+			document.getElementById("grid_boxes_8").value = "0";
+			document.getElementById("grid_boxes_8").disabled = true;
+			type = 1;
+		}
+	}
+	
+	function function_grid_boxes_9() 
+	{
+		if (type == 1) 
+		{
+			document.getElementById("grid_boxes_9").value = "X";
+			document.getElementById("grid_boxes_9").disabled = true;
+			type = 0;
+		}
+		else 
+		{
+			document.getElementById("grid_boxes_9").value = "0";
+			document.getElementById("grid_boxes_9").disabled = true;
+			type = 1;
+		}
+	}
+</script>
+
+</body>
+</html>
